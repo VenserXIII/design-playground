@@ -1,0 +1,93 @@
+:root {
+  --vw-gradient: #001e50 radial-gradient(circle at 0% 0%,#00437a 0,#001e50 100%) repeat scroll 0 0;
+}
+body {
+  height: 100vh;
+}
+#Main {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--vw-gradient);
+  overflow: auto;
+}
+#Header *:not(img), #Content * {
+  transition: 0.3s ease-in-out;
+}
+#Header {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  transition: 0.2s ease-in-out;
+}
+#Header > hr {
+  width: 100%;
+  height: 0.2em;
+  border: none;
+  background-color: white;
+}
+#Header > hr:first-of-type {
+  flex-basis: 266%;
+}
+#Header > img {
+  border-radius: 100%;
+  user-select: none;
+}
+.HeaderSlide {
+  transform: translateY(-150%);
+}
+#Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  background: url(./nivus.jpeg) 25% 50%/cover no-repeat fixed #001e50;
+  background-blend-mode: screen;
+  position: absolute;
+  overflow: auto;
+  padding: 4em 0.5em 0.5em;
+}
+.Title {
+  padding: 0.5rem;
+  background-color: white;
+  border: 0.0625em solid #dc3545;
+  font-size: 10vw;
+  text-align: center;
+  line-height: initial;
+  mix-blend-mode: screen;
+}
+volkswagen, nivus::selection, .Title:nth-child(2n) > nivus, .Title:nth-child(2n) > volkswagen::selection {
+  color: black;
+  background-color: white;
+}
+nivus, volkswagen::selection, .Title:nth-child(2n) > volkswagen, .Title:nth-child(2n) > nivus::selection {
+  background-color: black;
+  color: white;
+}
+@media (max-width: 691.98px) {
+  #Header > hr:first-of-type {
+    flex-basis: 100%;
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinalt {
+  33% {
+    transform: rotate(45deg);
+  }
+  66% {
+    transform: rotate(-45deg);
+  }
+}
+.anim {
+  animation: spin 1.5s infinite cubic-bezier(.68,-0.55,.27,1.55);
+}
